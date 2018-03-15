@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6_内置对象</title>
+    <style>
+        .test{
+            font-size: large;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>222</li>
+        <li>222</li>
+        <li>222</li>
+        <li>222</li>
+        <li>222</li>
+    </ul>
+
+<script>
+    //1.模板字符串
+    /*let html = '<html><header></header><body><p>good day</p><div>hello sunny</div></body></html>';
+    console.log(html);*/
+   /* let str = 'good day';
+    let str1 = 'test'
+    let html = `
+        <html>
+            <header></header>
+            <body>
+                <p>${str}</p>
+                <div class="${str1}">${str}</div>
+            </body>
+        </html>
+    `;
+    console.log(html);*/
+
+
+    //2.数组的扩展
+    // Array.from
+    let allLis = document.querySelectorAll('li');
+   /* console.log(allLis);
+    console.log(Array.isArray(allLis));
+    console.log(Array.from(allLis));
+    console.log(Array.isArray(Array.from(allLis)));
+*/
+
+    //Array.of
+    console.log(Array.of(1, 2, 3, 4));
+    console.log(Array.of('sunny', '这三', '作死', '嫣儿'));
+
+    //3.对象的扩展
+    //key 和value 是一样的，写一个就够了
+    let name = 'sunny';
+    let　age = 20;
+    let person = {
+        /*'name': 'sunny',
+        'age' : 20*/
+        name,
+        age
+    };
+    //console.log(person);
+
+    //Object.assign() 合并
+    let obj1 = {name : 'sunny'};
+    let obj2 = {age : 20};
+    let obj3 = {sex : 'man'};
+    let obj4 = {friends : 'tom'};
+    let obj = {};
+    Object.assign(obj, obj1, obj2, obj3, obj4);
+    console.log(obj);
+
+    //延展操作符  拆分，用于数据传递
+    let ctx = 'good day';
+    let ctxArr = [...ctx];
+    console.log(ctxArr);
+
+    /*let stduent = {
+        name: 'sunny',
+        age: 19,
+        sex:'man'
+    }
+    <Person  {...stduent}/>*/
+
+    //面试：重复数据过滤
+    let myArr = [1, 2, 10, 'sunny', 20, 2, 1];
+    //console.log(new Set(myArr));  //去重
+    console.log([...new Set(myArr)]);  //转为数组
+
+</script>
+</body>
+</html>
