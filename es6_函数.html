@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6_函数</title>
+</head>
+<body>
+
+<script>
+    //1.形参设置默认值
+    /*function sum(num1, num2) {     // es5
+        //解决sum();   //NaN
+        num1 = num1 || 10;
+        num2 = num2 || 10;
+        console.log(num1 + num2);
+    }*/
+
+    function sum(num1 = 10, num2 = 10) {     // es6 设置默认值
+
+        console.log(num1 + num2);
+    }
+    //sum(10,30);
+    sum();   //NaN
+
+
+    //2.参数形式  延展操作符
+    /*function sum2() {   //es5
+        let result = 0;
+        for (let value of arguments){
+            result += value;
+        }
+        return result;
+    }*/
+
+    function sum2(name, sex, ...nums) {   //es6 参数多样化传递
+        console.log(name);
+        console.log(sex);
+        let result = 0;
+        for (let value of nums){
+            result += value;
+        }
+        return result;
+    }
+
+    console.log(sum2('sunny', 'man',10, 20, 30, 40));
+
+    //箭头函数 解决了this指向问题
+    /*() => {}
+    function test() {
+
+    }*/
+
+    //let sum3 = () => {}
+    let sum3 = (num1, num2) => { return num1 + num2; };
+    console.log(sum3(100, 300));
+
+    let nameArr = ['sunny', 'tom', 'lily'];
+    //console.log(nameArr);
+
+    //遍历输出
+    /*nameArr.forEach(function (value, index) {
+        
+    })*/
+    nameArr.forEach((value, index) => {
+        console.log(index + ':' + value);
+    });
+
+    function demo() {
+        setTimeout(function () {
+            console.log(this);    //指向window
+        }, 1000);
+
+        setTimeout(() => {       //解决了this指向问题，指向obj
+            console.log(this);
+        }, 1000);
+    }
+    let obj = {};
+    demo.call(obj);
+
+
+
+</script>
+</body>
+</html>
